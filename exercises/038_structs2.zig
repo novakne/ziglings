@@ -4,7 +4,7 @@
 // them to functions, etc.
 //
 // This exercise demonstrates how we can store structs in an array and
-// how doing so lets us print them using a loop.
+// how doing so lets us print them all (both) using a loop.
 //
 const std = @import("std");
 
@@ -43,6 +43,13 @@ pub fn main() void {
     // Feel free to run this program without adding Zump. What does
     // it do and why?
 
+    chars[1] = Character{
+        .class = Class.wizard,
+        .gold = 10,
+        .health = 100,
+        .experience = 20,
+    };
+
     // Printing all RPG characters in a loop:
     for (chars) |c, num| {
         std.debug.print("Character {} - G:{} H:{} XP:{}\n", .{
@@ -50,9 +57,3 @@ pub fn main() void {
         });
     }
 }
-
-// If you tried running the program without adding Zump as mentioned
-// above, you get what appear to be "garbage" values. In debug mode
-// (which is the default), Zig writes the repeating pattern "10101010"
-// in binary (or 0xAA in hex) to all undefined locations to make them
-// easier to spot when debugging.

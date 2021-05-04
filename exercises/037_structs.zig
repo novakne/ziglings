@@ -36,6 +36,7 @@ const Character = struct {
     class: Class,
     gold: u32,
     experience: u32,
+    health: u32,
 };
 
 pub fn main() void {
@@ -44,6 +45,7 @@ pub fn main() void {
         .class = Class.wizard,
         .gold = 20,
         .experience = 10,
+        .health = 100,
     };
 
     // Glorp gains some gold.
@@ -52,7 +54,7 @@ pub fn main() void {
     // Ouch! Glorp takes a punch!
     glorp_the_wise.health -= 10;
 
-    std.debug.print("Your wizard has {} health and {} gold.\n", .{
+    std.debug.print("Your wizard has {} health and {} gold.", .{
         glorp_the_wise.health,
         glorp_the_wise.gold,
     });
