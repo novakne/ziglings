@@ -11,7 +11,7 @@ const Elephant = struct {
 
     // New Elephant methods!
     pub fn getTail(self: *Elephant) *Elephant {
-        return self.tail.?; // Remember, this means "orelse unreachable"
+        return self.tail.?; // Remember, this is means "orelse unreachable"
     }
 
     pub fn hasTail(self: *Elephant) bool {
@@ -34,7 +34,7 @@ pub fn main() void {
     var elephantB = Elephant{ .letter = 'B' };
     var elephantC = Elephant{ .letter = 'C' };
 
-    // This links the elephants so that each tail "points" to the next.
+    // Link the elephants so that each tail "points" to the next.
     elephantA.tail = &elephantB;
     elephantB.tail = &elephantC;
 
@@ -52,9 +52,9 @@ fn visitElephants(first_elephant: *Elephant) void {
         e.print();
         e.visit();
 
-        // This gets the next elephant or stops.
+        // Get the next elephant or stop.
         if (e.hasTail()) {
-            e = e.???; // Which method do we want here?
+            e = e.getTail(); // Which method do we want here?
         } else {
             break;
         }
@@ -79,3 +79,8 @@ fn visitElephants(first_elephant: *Elephant) void {
 //
 // 5) tomkun - here's another enum method
 // https://github.com/ziglang/zig/blob/4ca1f4ec2e3ae1a08295bc6ed03c235cb7700ab9/src/codegen/aarch64.zig#L24
+// Bonus: Zig's enums can also have methods! Can you find
+// one in the wild? If you can, mention it along with your
+// name or alias in a comment below this one and make a
+// pull request on GitHub for a piece of eternal Ziglings
+// glory. The first five (5) PRs will be accepted!

@@ -5,7 +5,7 @@
 // to store.
 //
 // In this example, an instance of Foo always takes up u64 of
-// space in memory even if you're currently storing a u8.
+// space memory even if you're currently storing a u8.
 //
 //     const Foo = union {
 //         small: u8,
@@ -59,8 +59,8 @@ pub fn main() void {
     std.debug.print("Insect report! ", .{});
 
     // Oops! We've made a mistake here.
-    printInsect(ant, AntOrBee.c);
-    printInsect(bee, AntOrBee.c);
+    printInsect(ant, AntOrBee.a);
+    printInsect(bee, AntOrBee.b);
 
     std.debug.print("\n", .{});
 }
