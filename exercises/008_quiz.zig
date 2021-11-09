@@ -19,7 +19,7 @@ pub fn main() void {
     // the idiomatic type to use for array indexing.
     //
     // There IS a problem on this line, but 'usize' isn't it.
-    const x: usize = 1;
+    var x: usize = 1;
 
     // Note: When you want to declare memory (an array in this
     // case) without putting anything in it, you can set it to
